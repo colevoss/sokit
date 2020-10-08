@@ -1,13 +1,20 @@
-import { createServer, IncomingMessage, ServerResponse } from 'http';
+import 'reflect-metadata';
+import { SokitServer } from './Server';
+import { TestChannel } from './TestChannel';
 
-const requestListener = (req: IncomingMessage, res: ServerResponse) => {
-  res.writeHead(200);
-  console.log('Request!');
-  res.end('Hello, World!');
-};
+const chan = new TestChannel();
 
-const server = createServer(requestListener);
+const server = new SokitServer();
 
-server.listen(8080, () => {
-  console.log('listening on port 8080!');
-});
+server.addChannel(chan);
+
+server.init();
+
+async function main() {
+  await server.start();
+
+  console.log('Server started');
+}
+
+main();
+// x[0].handler({ test: 'hello' }, { message: 'hello' });
