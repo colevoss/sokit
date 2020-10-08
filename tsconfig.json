@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es6",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "module": "commonjs",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "outDir": "build",
+    "types": ["node", "jest"]
+  },
+  "exclude": ["node_modules", "**/test"],
+  "include": ["src/**/*.ts"]
+}
